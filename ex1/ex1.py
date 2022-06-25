@@ -7,7 +7,7 @@ IRISのデータをMatplotlibでプロットする
 '''
 
 import matplotlib.pyplot as plt
-import pandas as pld
+import pandas as pd
 from sklearn.datasets import load_iris  # irisデータセットをロード
 
 iris = load_iris()
