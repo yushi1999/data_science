@@ -2,8 +2,8 @@
 #include <math.h>
 
 #define N 5
-#define MAX 1000    //収束最大回数
-#define EPS 1.0e-10 //最小誤差許容範囲
+#define MAX 1000    //最大反復回数
+#define EPS 1.0e-10 //収束判定値
 
 // http://pc-physics.com/jacobi1.html
 
@@ -38,7 +38,6 @@ void calc_jacobi(double a[N][N], double b[N], double xnew[N])
         //足しあわされた誤差が許容範囲内だったら計算終了とし解が求まったとする
         if (err < EPS)
         {
-            //収束回数が最大回数の値だったら正確な解が求まっていない可能性大なので注意
             printf("収束条件: ε< %.10lf\n", EPS);
             printf("収束回数は %d\n", k + 1);
             break;
@@ -46,7 +45,7 @@ void calc_jacobi(double a[N][N], double b[N], double xnew[N])
     }
 }
 
-int main(int argc, char const *argv[])
+int main(void)
 {
     int i;
     double a[N][N] = {
@@ -63,7 +62,7 @@ int main(int argc, char const *argv[])
     //解の出力
     for (i = 0; i < N; i++)
     {
-        printf("%8.4f\n", x[i]);
+        printf("x%d = %f\n", i + 1, x[i]);
     }
 
     return 0;
